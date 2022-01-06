@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>gail-application</module>
+        <module>gail-starter</module>
+    </modules>
+    <parent>
+        <groupId>com.aibaixun</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.aibaixun</groupId>
+    <artifactId>gail</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+    <dependencies>
+
+        <dependency>
+            <groupId>com.aibaixun</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aibaixun</groupId>
+            <artifactId>spring-boot-starter-swagger</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aibaixun</groupId>
+            <artifactId>spring-boot-starter-db</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aibaixun</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aibaixun</groupId>
+            <artifactId>spring-boot-starter-log</artifactId>
+        </dependency>
+
+        <!--MYSQL-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!--数据库连接池 HikariCP-->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+<!--        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--配置中心-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!--权限-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-security</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>

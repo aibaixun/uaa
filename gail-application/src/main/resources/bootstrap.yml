@@ -1,0 +1,23 @@
+server:
+  port: ${SERVER_PORT:8088}
+spring:
+#  banner:
+#    location: /banner.txt
+  application:
+    name: gail-application
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        enabled: false
+        server-addr: 172.16.7.152:8848
+        namespace: public
+        file-extension: yaml
+        prefix: gail-application
+      discovery:
+        enabled: true
+        server-addr: 172.16.7.152:8848
+        username: nacos
+        password: nacos
+        group: starSpace
