@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public static String mobileAuthUrl=authUrl+"/mobile";
     public static String emailAuthUrl=authUrl+"/email";
     public static String reflashAuthUrl=authUrl+"/reflash";
-
+    //public static String permissionhAuthUrl=authUrl+"/permission";
     @Autowired
     private RedisRepository redisRepository;
 
@@ -112,12 +112,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //各种认知过滤器
                 .and()
+                .addFilter(new OncePerRequestAuthoricationFilter(authenticationManager, redisRepository, authUserService)) //自定义请求过滤器
                 .addFilterBefore(buildProcessFilter(UserPrincipal.Type.USERNAME) , UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(buildProcessFilter(UserPrincipal.Type.MOBILE) , UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(buildProcessFilter(UserPrincipal.Type.EMAIL) , UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(buildProcessFilter(UserPrincipal.Type.REFLASH) , UsernamePasswordAuthenticationFilter.class)
+                //拦截资源获取
+                //.addFilterBefore(buildProcessFilter(UserPrincipal.Type.TOKEN) , UsernamePasswordAuthenticationFilter.class)
                 //.addFilter(new AuthenticationFilter(authenticationManager(), redisTemplate))   //自定义认证过滤器
-                //.addFilter(new OncePerRequestAuthoricationFilter(authenticationManager(), redisTemplate, (MyUserService) userDetailsService())) //自定义请求过滤器
 
                 //去除默认的session、cookie
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -153,10 +155,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         }else if(type==UserPrincipal.Type.REFLASH){
             filter = new RestReflashProcessingFilter(reflashAuthUrl,successHandler,failureHandler,redisRepository);
         }else if(type==UserPrincipal.Type.TOKEN){
-            List<String> pathsToSkip = new ArrayList<>(Arrays.asList(userNameAuthUrl,mobileAuthUrl,emailAuthUrl));
+            List<String> pathsToSkip = new ArrayList<>(Arrays.asList(userNameAuthUrl,mobileAuthUrl,emailAuthUrl,reflashAuthUrl));
             SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(pathsToSkip, "/gail/**");
             filter = new RestTokenProcessingFilter(matcher);
         }
+
         //自定义的filter 没有authenticationManager，需要自己加入
         filter.setAuthenticationManager(authenticationManager);
         return filter;

@@ -19,7 +19,7 @@ public class User implements Serializable {
     /**
      * id
      */
-    private Long id;
+    private String id;
 
     /**
      * 类型：超管，租户管理，普通用户
@@ -54,12 +54,12 @@ public class User implements Serializable {
     /**
      * 用户组
      */
-    private Long groupId;
+    private String groupId;
 
     /**
      * 租户id
      */
-    private Long tenantId;
+    private String tenantId;
 
     /**
      * 头像
@@ -74,7 +74,7 @@ public class User implements Serializable {
     /**
      * 创建人
      */
-    private Long createBy;
+    private String createBy;
 
     /**
      * 创建时间
@@ -84,7 +84,7 @@ public class User implements Serializable {
     /**
      * 更新人
      */
-    private Long updateBy;
+    private String updateBy;
 
     /**
      * 更新时间
@@ -112,11 +112,11 @@ public class User implements Serializable {
     private Integer deleted;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -168,19 +168,19 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Long getGroupId() {
+    public String getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Long groupId) {
+    public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
 
-    public Long getTenantId() {
+    public String getTenantId() {
         return tenantId;
     }
 
-    public void setTenantId(Long tenantId) {
+    public void setTenantId(String tenantId) {
         this.tenantId = tenantId;
     }
 
@@ -200,11 +200,11 @@ public class User implements Serializable {
         this.remark = remark;
     }
 
-    public Long getCreateBy() {
+    public String getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(Long createBy) {
+    public void setCreateBy(String createBy) {
         this.createBy = createBy;
     }
 
@@ -216,11 +216,11 @@ public class User implements Serializable {
         this.createTime = createTime;
     }
 
-    public Long getUpdateBy() {
+    public String getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(Long updateBy) {
+    public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
 

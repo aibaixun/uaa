@@ -14,5 +14,5 @@ import java.util.List;
  * @since 2022-01-06
  */
 public interface IRoleService extends IService<Role> {
-    List<Role> listRoleByUserGroup(Long groupId);
+    List<Role> listRoleByUserGroup(String groupId);
 }

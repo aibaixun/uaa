@@ -1,5 +1,8 @@
 package com.aibaixun.gail.config;
 
+import com.aibaixun.common.redis.util.RedisRepository;
+import com.aibaixun.common.util.JsonUtil;
+import com.aibaixun.gail.entity.AuthUser;
 import com.aibaixun.gail.entity.UserPrincipal;
 import com.aibaixun.gail.service.IAuthUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,10 @@ public class RestAuthenticationProvider  implements AuthenticationProvider {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private RedisRepository redisRepository;
+
     //认证处理，返回一个Authentication的实现类则代表认证成功，返回null则代表认证失败
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -37,8 +44,10 @@ public class RestAuthenticationProvider  implements AuthenticationProvider {
             authUser = authUserService.loadUserByMobile(userPrincipal.getValue());
         } else if (userPrincipal.getType()==UserPrincipal.Type.EMAIL){
             authUser = authUserService.loadUserByEmail(userPrincipal.getValue());
+        }else if (userPrincipal.getType()==UserPrincipal.Type.TOKEN){
+            authUser = JsonUtil.toObject((String) redisRepository.get(SecurityConstants.TOKENPREFIX+userPrincipal.getValue()), AuthUser.class);
         }else if (userPrincipal.getType()==UserPrincipal.Type.REFLASH){
-            authUser = authUserService.loadUserByUserId(Long.valueOf(userPrincipal.getValue()));
+            authUser = authUserService.loadUserByUserId(userPrincipal.getValue());
         }
 
         // 密码校验

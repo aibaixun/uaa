@@ -20,7 +20,7 @@ import java.util.List;
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IRoleService {
 
     @Override
-    public List<Role> listRoleByUserGroup(Long groupId) {
+    public List<Role> listRoleByUserGroup(String groupId) {
         return baseMapper.selectRoleByUserGroupId(groupId);
     }
 }

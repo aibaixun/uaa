@@ -19,22 +19,22 @@ public class AuthLog implements Serializable {
     /**
      * id
      */
-    private Long id;
+    private String id;
 
     /**
      * userId
      */
-    private Long userId;
+    private String userId;
 
     /**
      * 最近登录
      */
-    private Long lastLoginTime;
+    private String lastLoginTime;
 
     /**
      * 最近登录ip
      */
-    private Long lastLoginIp;
+    private String lastLoginIp;
 
     /**
      * 激活状态
@@ -44,7 +44,7 @@ public class AuthLog implements Serializable {
     /**
      * 创建人
      */
-    private Long createBy;
+    private String createBy;
 
     /**
      * 创建时间
@@ -54,7 +54,7 @@ public class AuthLog implements Serializable {
     /**
      * 更新人
      */
-    private Long updateBy;
+    private String updateBy;
 
     /**
      * 更新时间
@@ -67,35 +67,35 @@ public class AuthLog implements Serializable {
     private Integer deleted;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public Long getLastLoginTime() {
+    public String getLastLoginTime() {
         return lastLoginTime;
     }
 
-    public void setLastLoginTime(Long lastLoginTime) {
+    public void setLastLoginTime(String lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
     }
 
-    public Long getLastLoginIp() {
+    public String getLastLoginIp() {
         return lastLoginIp;
     }
 
-    public void setLastLoginIp(Long lastLoginIp) {
+    public void setLastLoginIp(String lastLoginIp) {
         this.lastLoginIp = lastLoginIp;
     }
 
@@ -107,11 +107,11 @@ public class AuthLog implements Serializable {
         this.active = active;
     }
 
-    public Long getCreateBy() {
+    public String getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(Long createBy) {
+    public void setCreateBy(String createBy) {
         this.createBy = createBy;
     }
 
@@ -123,11 +123,11 @@ public class AuthLog implements Serializable {
         this.createTime = createTime;
     }
 
-    public Long getUpdateBy() {
+    public String getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(Long updateBy) {
+    public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
 

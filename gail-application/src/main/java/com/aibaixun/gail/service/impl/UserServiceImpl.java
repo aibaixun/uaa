@@ -52,8 +52,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
-    public UserDetails loadUserByUserId(Long userId) throws UsernameNotFoundException {
-        return loadUserByAuth(UserPrincipal.Type.REFLASH,userId.toString());
+    public UserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
+        return loadUserByAuth(UserPrincipal.Type.REFLASH,userId);
     }
 
     private UserDetails loadUserByAuth(UserPrincipal.Type type, String value) throws UsernameNotFoundException {
@@ -66,7 +66,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         } else if (type==UserPrincipal.Type.EMAIL){
             queryWrapper.eq(User::getEmail,value);
         }else if (type==UserPrincipal.Type.REFLASH){
-            queryWrapper.eq(User::getId,Long.valueOf(value));
+            queryWrapper.eq(User::getId,value);
         } else{
             throw new UsernameNotFoundException(value);
         }

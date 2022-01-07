@@ -1,6 +1,7 @@
 package com.aibaixun.gail.filter;
 
 import com.aibaixun.common.redis.util.RedisRepository;
+import com.aibaixun.common.util.JsonUtil;
 import com.aibaixun.gail.config.SecurityConstants;
 import com.aibaixun.gail.entity.AuthUser;
 import com.aibaixun.gail.entity.UserPrincipal;
@@ -55,14 +56,14 @@ public class RestReflashProcessingFilter extends AbstractAuthenticationProcessin
         if (StringUtils.isEmpty(token)){
             throw new BadCredentialsException("token为空！");
         }
-        AuthUser user = (AuthUser)redisRepository.get(SecurityConstants.TOKENPREFIX + token);
+        AuthUser user = JsonUtil.toObject((String) redisRepository.get(SecurityConstants.TOKENPREFIX + token),AuthUser.class);
         if (user==null){
             throw new BadCredentialsException("token已过期！");
         }
 
         //redis清除token
         redisRepository.del(SecurityConstants.TOKENPREFIX + token);
-        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.REFLASH,user.getUserId().toString());
+        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.REFLASH,user.getUserId());
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(principal, null);
         return this.getAuthenticationManager().authenticate(authenticationToken);
     }

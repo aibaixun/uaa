@@ -1,13 +1,16 @@
 package com.aibaixun.gail.handle;
 
+import com.aibaixun.basic.entity.UserInfo;
 import com.aibaixun.basic.result.JsonResult;
 import com.aibaixun.common.redis.util.RedisRepository;
 import com.aibaixun.common.util.JsonUtil;
+import com.aibaixun.gail.config.SecurityConfig;
 import com.aibaixun.gail.config.SecurityConstants;
 import com.aibaixun.gail.entity.AuthUser;
 import com.aibaixun.gail.utils.CustomUtils;
 import com.alibaba.nacos.common.utils.MD5Utils;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.digest.Md5Crypt;
 import org.apache.tomcat.util.security.MD5Encoder;
@@ -36,6 +39,7 @@ public class RestAuthenticationSuccessHandler implements AuthenticationSuccessHa
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         //验证成功则向redis缓存写入token，然后在响应头添加token，并向前端返回
         AuthUser authUser = (AuthUser) authentication.getPrincipal();
+
         //MD5
         String token = null;
         try {
@@ -44,8 +48,8 @@ public class RestAuthenticationSuccessHandler implements AuthenticationSuccessHa
         }catch (Exception exception){
             exception.printStackTrace();
         }
-
-        redisRepository.setExpire(SecurityConstants.TOKENPREFIX + token, authUser, (authUser.getTokenExpired()-System.currentTimeMillis())/1000);
+        //保存到redis
+        redisRepository.setExpire(SecurityConstants.TOKENPREFIX + token, JsonUtil.toJSONString(authUser), (authUser.getTokenExpired()-System.currentTimeMillis())/1000);
 
         //返回用户id，名称
         HashMap<String, String> user = new HashMap<>();
@@ -53,6 +57,12 @@ public class RestAuthenticationSuccessHandler implements AuthenticationSuccessHa
         user.put("username", authUser.getUsername());
 
         response.setHeader(SecurityConstants.TOKENFIELD, token);
-        CustomUtils.sendJsonMessage(response, JsonResult.success(user));
+        if (request.getRequestURI().startsWith(SecurityConfig.reflashAuthUrl)){
+            HashMap<String,String> newToken = new HashMap<>();
+            newToken.put("newToken",token);
+            CustomUtils.sendJsonMessage(response, JsonResult.success(newToken));
+        }else {
+            CustomUtils.sendJsonMessage(response, JsonResult.success(user));
+        }
     }
 }

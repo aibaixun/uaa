@@ -19,22 +19,22 @@ public class UserGroupRole implements Serializable {
     /**
      * id
      */
-    private Long id;
+    private String id;
 
     /**
      * 用户组
      */
-    private Long userGroupId;
+    private String userGroupId;
 
     /**
      * userId
      */
-    private Long roleId;
+    private String roleId;
 
     /**
      * 创建人
      */
-    private Long createBy;
+    private String createBy;
 
     /**
      * 创建时间
@@ -44,7 +44,7 @@ public class UserGroupRole implements Serializable {
     /**
      * 更新人
      */
-    private Long updateBy;
+    private String updateBy;
 
     /**
      * 更新时间
@@ -57,35 +57,35 @@ public class UserGroupRole implements Serializable {
     private Integer deleted;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getUserGroupId() {
+    public String getUserGroupId() {
         return userGroupId;
     }
 
-    public void setUserGroupId(Long userGroupId) {
+    public void setUserGroupId(String userGroupId) {
         this.userGroupId = userGroupId;
     }
 
-    public Long getRoleId() {
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Long roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 
-    public Long getCreateBy() {
+    public String getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(Long createBy) {
+    public void setCreateBy(String createBy) {
         this.createBy = createBy;
     }
 
@@ -97,11 +97,11 @@ public class UserGroupRole implements Serializable {
         this.createTime = createTime;
     }
 
-    public Long getUpdateBy() {
+    public String getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(Long updateBy) {
+    public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
 

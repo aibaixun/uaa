@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class AuthUser implements UserDetails, UserInfo {
+public class AuthUserbac implements UserDetails, UserInfo {
     private String userId;
     private String tenantId;
     private String username;
@@ -23,8 +23,8 @@ public class AuthUser implements UserDetails, UserInfo {
     private Long reflashTokenExpired;
     private Set<String> roleIds;
 
-    public AuthUser() {}
-    public AuthUser(User user, List<Role> roles) {
+    public AuthUserbac() {}
+    public AuthUserbac(User user, List<Role> roles) {
         userId = user.getId();
         tenantId = user.getTenantId();
         username = user.getUsername();

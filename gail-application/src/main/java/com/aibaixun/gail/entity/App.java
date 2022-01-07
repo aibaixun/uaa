@@ -19,7 +19,7 @@ public class App implements Serializable {
     /**
      * id
      */
-    private Long id;
+    private String id;
 
     /**
      * 类型
@@ -59,7 +59,7 @@ public class App implements Serializable {
     /**
      * 创建人
      */
-    private Long createBy;
+    private String createBy;
 
     /**
      * 创建时间
@@ -69,7 +69,7 @@ public class App implements Serializable {
     /**
      * 更新人
      */
-    private Long updateBy;
+    private String updateBy;
 
     /**
      * 更新时间
@@ -102,11 +102,11 @@ public class App implements Serializable {
     private Integer sort;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -166,11 +166,11 @@ public class App implements Serializable {
         this.remark = remark;
     }
 
-    public Long getCreateBy() {
+    public String getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(Long createBy) {
+    public void setCreateBy(String createBy) {
         this.createBy = createBy;
     }
 
@@ -182,11 +182,11 @@ public class App implements Serializable {
         this.createTime = createTime;
     }
 
-    public Long getUpdateBy() {
+    public String getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(Long updateBy) {
+    public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
 

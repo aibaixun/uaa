@@ -19,7 +19,7 @@ public class Permission implements Serializable {
     /**
      * id
      */
-    private Long id;
+    private String id;
 
     /**
      * 名称
@@ -54,7 +54,7 @@ public class Permission implements Serializable {
     /**
      * 应用id
      */
-    private Long appId;
+    private String appId;
 
     /**
      * 备注
@@ -64,7 +64,7 @@ public class Permission implements Serializable {
     /**
      * 创建人
      */
-    private Long createBy;
+    private String createBy;
 
     /**
      * 创建时间
@@ -74,7 +74,7 @@ public class Permission implements Serializable {
     /**
      * 更新人
      */
-    private Long updateBy;
+    private String updateBy;
 
     /**
      * 更新时间
@@ -87,11 +87,11 @@ public class Permission implements Serializable {
     private Integer deleted;
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -143,11 +143,11 @@ public class Permission implements Serializable {
         this.resource = resource;
     }
 
-    public Long getAppId() {
+    public String getAppId() {
         return appId;
     }
 
-    public void setAppId(Long appId) {
+    public void setAppId(String appId) {
         this.appId = appId;
     }
 
@@ -159,11 +159,11 @@ public class Permission implements Serializable {
         this.remark = remark;
     }
 
-    public Long getCreateBy() {
+    public String getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(Long createBy) {
+    public void setCreateBy(String createBy) {
         this.createBy = createBy;
     }
 
@@ -175,11 +175,11 @@ public class Permission implements Serializable {
         this.createTime = createTime;
     }
 
-    public Long getUpdateBy() {
+    public String getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(Long updateBy) {
+    public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
 
