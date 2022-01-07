@@ -1,7 +1,6 @@
 package com.aibaixun.gail.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.aibaixun.common.util.JsonUtil;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
@@ -14,11 +13,10 @@ public class CustomUtils {
      */
     public static void sendJsonMessage(HttpServletResponse response, Object obj) {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
             response.setContentType("application/json; charset=utf-8");
             PrintWriter writer = response.getWriter();
             //Java对象转为Json格式的数据(objectMapper.writeValueAsString)
-            writer.print(objectMapper.writeValueAsString(obj));
+            writer.print(JsonUtil.toJSONString(obj));
             writer.close();
             //内容写到客户端浏览器
             response.flushBuffer();

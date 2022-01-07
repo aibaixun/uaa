@@ -1,5 +1,7 @@
 package com.aibaixun.gail.handle;
 
+import com.aibaixun.basic.result.BaseResultCode;
+import com.aibaixun.basic.result.JsonResult;
 import com.aibaixun.gail.utils.CustomUtils;
 import com.aibaixun.gail.utils.JsonData;
 import org.springframework.security.core.AuthenticationException;
@@ -15,7 +17,7 @@ import java.io.IOException;
 public class TokenAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        CustomUtils.sendJsonMessage(response, JsonData.buildError("请登录！！"));
+        CustomUtils.sendJsonMessage(response, JsonResult.failed(BaseResultCode.NO_LOGIN,"请登录!"));
     }
 }
 

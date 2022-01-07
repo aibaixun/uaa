@@ -1,4 +1,4 @@
-package com.aibaixun.gail.config;
+package com.aibaixun.gail.entity;
 
 import java.io.Serializable;
 
@@ -21,9 +21,10 @@ public class UserPrincipal implements Serializable {
     }
 
     public enum Type {
-        USER_NAME,
+        USERNAME,
         EMAIL,
         MOBILE,
-        TOKEN
+        TOKEN,
+        REFLASH
     }
 }

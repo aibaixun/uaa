@@ -1,700 +1,152 @@
-2022-01-05 10:54:28.652 [main] [o.s.b.SpringApplication]-[WARN] Unable to close ApplicationContext
-java.lang.IllegalStateException: Failed to introspect Class [com.aibaixun.common.autoconfig.RestTemplateAutoConfigure] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@2437c6dc]
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481)
-	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358)
-	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:742)
-	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1737)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:741)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:680)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:648)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1614)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:495)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:620)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:612)
-	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1243)
-	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:880)
-	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:868)
-	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:855)
-	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:806)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
-	at GailApplication.main(GailApplication.java:11)
-Caused by: java.lang.NoClassDefFoundError: org/apache/http/client/HttpClient
-	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
-	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3166)
-	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2309)
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463)
-	... 21 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.apache.http.client.HttpClient
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
-	... 25 common frames omitted
-2022-01-05 10:56:22.323 [main] [o.s.b.SpringApplication]-[WARN] Unable to close ApplicationContext
-java.lang.IllegalStateException: Failed to introspect Class [com.aibaixun.common.autoconfig.RestTemplateAutoConfigure] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@2437c6dc]
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481)
-	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358)
-	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:742)
-	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:741)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:680)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:648)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1614)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:495)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:620)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:612)
-	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1243)
-	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:880)
-	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:868)
-	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:855)
-	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:806)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
-	at GailApplication.main(GailApplication.java:11)
-Caused by: java.lang.NoClassDefFoundError: org/apache/http/client/HttpClient
-	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
-	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3166)
-	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2309)
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463)
-	... 21 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.apache.http.client.HttpClient
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
-	... 25 common frames omitted
-2022-01-05 10:59:22.563 [main] [o.s.b.SpringApplication]-[WARN] Unable to close ApplicationContext
-java.lang.IllegalStateException: Failed to introspect Class [com.aibaixun.common.autoconfig.RestTemplateAutoConfigure] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@2437c6dc]
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481)
-	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358)
-	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:742)
-	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:741)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:680)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:648)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1614)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:495)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:620)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:612)
-	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1243)
-	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:880)
-	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:868)
-	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:855)
-	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:806)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
-	at GailApplication.main(GailApplication.java:11)
-Caused by: java.lang.NoClassDefFoundError: org/apache/http/client/HttpClient
-	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
-	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3166)
-	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2309)
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463)
-	... 21 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.apache.http.client.HttpClient
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
-	... 25 common frames omitted
-2022-01-05 10:59:37.786 [main] [o.s.b.SpringApplication]-[WARN] Unable to close ApplicationContext
-java.lang.IllegalStateException: Failed to introspect Class [com.aibaixun.common.autoconfig.RestTemplateAutoConfigure] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@2437c6dc]
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481)
-	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358)
-	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:742)
-	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1737)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:741)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:680)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:648)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1614)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:495)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:620)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:612)
-	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1243)
-	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:880)
-	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:868)
-	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:855)
-	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:806)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
-	at GailApplication.main(GailApplication.java:11)
-Caused by: java.lang.NoClassDefFoundError: org/apache/http/client/HttpClient
-	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
-	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3166)
-	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2309)
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463)
-	... 21 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.apache.http.client.HttpClient
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
-	... 25 common frames omitted
-2022-01-05 11:01:49.512 [main] [o.s.b.SpringApplication]-[WARN] Unable to close ApplicationContext
-java.lang.IllegalStateException: Failed to introspect Class [com.aibaixun.common.autoconfig.RestTemplateAutoConfigure] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@2437c6dc]
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481)
-	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358)
-	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:742)
-	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:741)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:680)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:648)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1614)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:495)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:620)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:612)
-	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1243)
-	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:880)
-	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:868)
-	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:855)
-	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:806)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
-	at com.aibaixun.GailApplication.main(GailApplication.java:11)
-Caused by: java.lang.NoClassDefFoundError: org/apache/http/client/HttpClient
-	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
-	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3166)
-	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2309)
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463)
-	... 21 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.apache.http.client.HttpClient
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
-	... 25 common frames omitted
-2022-01-05 11:04:14.848 [main] [o.s.b.SpringApplication]-[WARN] Unable to close ApplicationContext
-java.lang.IllegalStateException: Failed to introspect Class [com.aibaixun.common.autoconfig.RestTemplateAutoConfigure] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@2437c6dc]
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481)
-	at org.springframework.util.ReflectionUtils.doWithMethods(ReflectionUtils.java:358)
-	at org.springframework.util.ReflectionUtils.getUniqueDeclaredMethods(ReflectionUtils.java:414)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.lambda$getTypeForFactoryMethod$2(AbstractAutowireCapableBeanFactory.java:742)
-	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1737)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryMethod(AbstractAutowireCapableBeanFactory.java:741)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:680)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:648)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1614)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:523)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:495)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:620)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:612)
-	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1243)
-	at org.springframework.boot.SpringApplication.getExitCodeFromMappedException(SpringApplication.java:880)
-	at org.springframework.boot.SpringApplication.getExitCodeFromException(SpringApplication.java:868)
-	at org.springframework.boot.SpringApplication.handleExitCode(SpringApplication.java:855)
-	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:806)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
-	at com.aibaixun.GailApplication.main(GailApplication.java:11)
-Caused by: java.lang.NoClassDefFoundError: org/apache/http/client/HttpClient
-	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
-	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3166)
-	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2309)
-	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463)
-	... 21 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.apache.http.client.HttpClient
-	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
-	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
-	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
-	... 25 common frames omitted
-2022-01-05 11:11:26.824 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:11:27.196 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:11:27.199 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:11:27.213 [main] [o.s.c.a.AnnotationConfigApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.aibaixun.common.autoconfig.MybatisPlusAutoConfigure': Unsatisfied dependency expressed through method 'setProperties' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'com.aibaixun.common.mybatisplus.MybatisPlusAutoConfigProperties' available: expected single matching bean but found 2: mybatisPlusAutoConfigProperties,bx.mybatis-plus-com.aibaixun.common.mybatisplus.MybatisPlusAutoConfigProperties
-2022-01-05 11:17:45.858 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:17:46.271 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:17:46.275 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:17:46.392 [main] [o.s.c.a.AnnotationConfigApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [com/aibaixun/common/autoconfig/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConnectionFactory' defined in class path resource [org/springframework/boot/autoconfigure/data/redis/LettuceConnectionConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory]: Factory method 'redisConnectionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/apache/commons/pool2/impl/GenericObjectPoolConfig
-2022-01-05 11:18:51.953 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:18:52.383 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:18:52.387 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:19:42.043 [main] [o.s.c.a.AnnotationConfigApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [com/aibaixun/common/autoconfig/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConnectionFactory' defined in class path resource [org/springframework/boot/autoconfigure/data/redis/LettuceConnectionConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory]: Factory method 'redisConnectionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/apache/commons/pool2/impl/GenericObjectPoolConfig
-2022-01-05 11:23:05.753 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:23:06.185 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:23:06.189 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:23:06.303 [main] [o.s.c.a.AnnotationConfigApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [com/aibaixun/common/autoconfig/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConnectionFactory' defined in class path resource [org/springframework/boot/autoconfigure/data/redis/LettuceConnectionConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory]: Factory method 'redisConnectionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/apache/commons/pool2/impl/GenericObjectPoolConfig
-2022-01-05 11:24:47.533 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:24:47.957 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:24:47.961 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:24:48.079 [main] [o.s.c.a.AnnotationConfigApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [com/aibaixun/common/autoconfig/RedisConfig.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConnectionFactory' defined in class path resource [org/springframework/boot/autoconfigure/data/redis/LettuceConnectionConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory]: Factory method 'redisConnectionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/apache/commons/pool2/impl/GenericObjectPoolConfig
-2022-01-05 11:25:51.925 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:25:52.343 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:25:52.346 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:25:53.864 [main] [o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger]-[WARN] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2022-01-05 11:26:20.153 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:26:20.571 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:26:20.575 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:26:33.402 [main] [o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger]-[WARN] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2022-01-05 11:30:51.626 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:30:52.075 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:30:52.080 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:30:53.592 [main] [o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger]-[WARN] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2022-01-05 11:31:21.734 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:31:22.154 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:31:22.158 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:31:42.124 [main] [o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger]-[WARN] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2022-01-05 11:34:36.194 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:34:36.611 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:34:36.614 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:34:55.272 [main] [o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger]-[WARN] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2022-01-05 11:36:03.407 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:36:03.835 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:36:03.839 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:36:05.347 [main] [o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger]-[WARN] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2022-01-05 11:36:36.580 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:36:37.062 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:36:37.066 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:36:38.570 [main] [o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger]-[WARN] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2022-01-05 11:40:43.468 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:40:43.921 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:40:43.925 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:52:54.736 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:52:55.160 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:52:55.163 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:53:41.331 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 11:53:41.768 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 11:53:41.774 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:23:13.362 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 12:23:13.814 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:23:13.817 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:26:25.010 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 12:26:25.922 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:26:25.926 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:29:41.693 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 12:29:42.543 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:29:42.547 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:33:39.383 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 12:33:40.255 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:33:40.258 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:38:36.614 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 12:38:37.515 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:38:37.519 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:47:10.485 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 12:47:11.340 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 12:47:11.343 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 13:29:38.265 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun]' package. Please check your configuration.
-2022-01-05 13:29:39.131 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 13:29:39.135 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 13:55:27.734 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 13:55:28.628 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 13:55:28.632 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 13:57:20.291 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 13:57:20.671 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 13:57:20.746 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 13:57:22.642 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 13:57:22.646 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 13:57:24.034 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 13:57:24.544 [http-nio-8088-exec-2] [o.a.c.u.SessionIdGeneratorBase]-[WARN] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [150] milliseconds.
-2022-01-05 13:59:44.990 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 13:59:45.893 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 13:59:45.897 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:33:57.154 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
-2022-01-05 16:33:57.160 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
-2022-01-05 16:33:58.062 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
-2022-01-05 16:33:58.066 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 16:33:58.394 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 16:33:58.465 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 16:34:00.319 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:34:00.323 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:34:01.657 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 16:35:17.965 [http-nio-8088-exec-1] [o.a.c.u.SessionIdGeneratorBase]-[WARN] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [136] milliseconds.
-2022-01-05 16:35:41.000 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Start destroying NacosRestTemplate
-2022-01-05 16:35:41.000 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Destruction of the end
-2022-01-05 16:35:41.003 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Start destroying NacosRestTemplate
-2022-01-05 16:35:41.003 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Destruction of the end
-2022-01-05 16:35:45.646 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
-2022-01-05 16:35:45.653 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
-2022-01-05 16:35:46.524 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
-2022-01-05 16:35:46.528 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 16:35:46.874 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 16:35:46.947 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 16:35:48.785 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:35:48.789 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:35:50.169 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 16:36:01.987 [http-nio-8088-exec-1] [o.a.c.u.SessionIdGeneratorBase]-[WARN] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [130] milliseconds.
-2022-01-05 16:36:23.459 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
-2022-01-05 16:36:23.467 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
-2022-01-05 16:36:24.475 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 16:36:25.618 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:36:25.627 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:36:58.208 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
-2022-01-05 16:36:58.216 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
-2022-01-05 16:36:59.049 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 16:36:59.902 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:36:59.906 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:44:42.051 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
-2022-01-05 16:44:42.058 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
-2022-01-05 16:44:42.914 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 16:44:43.761 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:44:43.765 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:50:44.067 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Start destroying NacosRestTemplate
-2022-01-05 16:50:44.069 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Destruction of the end
-2022-01-05 16:50:44.070 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Start destroying NacosRestTemplate
-2022-01-05 16:50:44.070 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Destruction of the end
-2022-01-05 16:50:48.784 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 16:50:49.735 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:50:49.738 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 16:50:52.123 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'scopedTarget.configController': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'aa' in value "${aa}"
-2022-01-05 17:19:39.958 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:19:40.299 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:19:40.369 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 17:19:42.743 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:19:42.746 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:19:43.892 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 17:22:41.020 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:22:41.374 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:22:41.447 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 17:22:43.719 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:22:43.723 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:22:44.902 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 17:25:49.737 [http-nio-8088-exec-1] [ExceptionHandler]-[WARN] ExceptionHandlerConfiguration--runtimeExceptionHandler,message:getWriter() has already been called for this response
-2022-01-05 17:25:49.743 [http-nio-8088-exec-1] [o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver]-[WARN] Failure in @ExceptionHandler com.aibaixun.common.exception.GlobalExceptionHandler#runtimeExceptionHandler(RuntimeException)
-java.lang.IllegalStateException: getWriter() has already been called for this response
-	at org.apache.catalina.connector.Response.getOutputStream(Response.java:550)
-	at org.apache.catalina.connector.ResponseFacade.getOutputStream(ResponseFacade.java:210)
-	at javax.servlet.ServletResponseWrapper.getOutputStream(ServletResponseWrapper.java:105)
-	at org.springframework.http.server.ServletServerHttpResponse.getBody(ServletServerHttpResponse.java:84)
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:313)
-	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:277)
-	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:219)
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:82)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:123)
-	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:407)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:61)
-	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:141)
-	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
-	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1300)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1111)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
-	at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:580)
-	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:516)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:392)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2022-01-05 17:28:14.199 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
-2022-01-05 17:28:14.205 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
-2022-01-05 17:28:15.029 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:28:15.033 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:28:15.358 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:28:15.425 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 17:28:17.557 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:28:17.560 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:28:18.789 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 17:29:37.226 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
-2022-01-05 17:29:37.231 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
-2022-01-05 17:29:38.061 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:29:38.066 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:29:38.399 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:29:38.475 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 17:29:40.722 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:29:40.727 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:29:41.934 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 17:30:56.164 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
-2022-01-05 17:30:56.171 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
-2022-01-05 17:30:56.980 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:30:56.984 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:30:57.305 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:30:57.380 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 17:30:59.639 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:30:59.643 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:31:00.863 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 17:37:09.906 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Start destroying NacosRestTemplate
-2022-01-05 17:37:09.907 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Destruction of the end
-2022-01-05 17:37:09.909 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Start destroying NacosRestTemplate
-2022-01-05 17:37:09.909 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Destruction of the end
-2022-01-05 17:37:15.740 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:37:16.111 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:37:16.186 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 17:37:18.404 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:37:18.409 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:37:19.603 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 17:37:25.252 [http-nio-8088-exec-1] [ExceptionHandler]-[WARN] ExceptionHandlerConfiguration--runtimeExceptionHandler,message:getWriter() has already been called for this response
-2022-01-05 17:37:25.257 [http-nio-8088-exec-1] [o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver]-[WARN] Failure in @ExceptionHandler com.aibaixun.common.exception.GlobalExceptionHandler#runtimeExceptionHandler(RuntimeException)
-java.lang.IllegalStateException: getWriter() has already been called for this response
-	at org.apache.catalina.connector.Response.getOutputStream(Response.java:550)
-	at org.apache.catalina.connector.ResponseFacade.getOutputStream(ResponseFacade.java:210)
-	at javax.servlet.ServletResponseWrapper.getOutputStream(ServletResponseWrapper.java:105)
-	at org.springframework.http.server.ServletServerHttpResponse.getBody(ServletServerHttpResponse.java:84)
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:313)
-	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:277)
-	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:219)
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:82)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:123)
-	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:407)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:61)
-	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:141)
-	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
-	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1300)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1111)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
-	at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:580)
-	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:516)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:392)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2022-01-05 17:37:48.651 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:37:49.007 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:37:49.080 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 17:37:51.552 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:37:51.556 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:37:52.740 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 17:37:53.948 [http-nio-8088-exec-3] [ExceptionHandler]-[WARN] ExceptionHandlerConfiguration--runtimeExceptionHandler,message:getWriter() has already been called for this response
-2022-01-05 17:37:53.956 [http-nio-8088-exec-3] [o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver]-[WARN] Failure in @ExceptionHandler com.aibaixun.common.exception.GlobalExceptionHandler#runtimeExceptionHandler(RuntimeException)
-java.lang.IllegalStateException: getWriter() has already been called for this response
-	at org.apache.catalina.connector.Response.getOutputStream(Response.java:550)
-	at org.apache.catalina.connector.ResponseFacade.getOutputStream(ResponseFacade.java:210)
-	at javax.servlet.ServletResponseWrapper.getOutputStream(ServletResponseWrapper.java:105)
-	at org.springframework.http.server.ServletServerHttpResponse.getBody(ServletServerHttpResponse.java:84)
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:313)
-	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:277)
-	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:219)
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:82)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:123)
-	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:407)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:61)
-	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:141)
-	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
-	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1300)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1111)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
-	at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:580)
-	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:516)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:392)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2022-01-05 17:38:28.078 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:38:28.419 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 17:38:28.494 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 17:38:30.705 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:38:30.709 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 17:38:31.896 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
-2022-01-05 17:39:11.556 [http-nio-8088-exec-1] [ExceptionHandler]-[WARN] ExceptionHandlerConfiguration--runtimeExceptionHandler,message:getWriter() has already been called for this response
-2022-01-05 17:39:11.561 [http-nio-8088-exec-1] [o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver]-[WARN] Failure in @ExceptionHandler com.aibaixun.common.exception.GlobalExceptionHandler#runtimeExceptionHandler(RuntimeException)
-java.lang.IllegalStateException: getWriter() has already been called for this response
-	at org.apache.catalina.connector.Response.getOutputStream(Response.java:550)
-	at org.apache.catalina.connector.ResponseFacade.getOutputStream(ResponseFacade.java:210)
-	at javax.servlet.ServletResponseWrapper.getOutputStream(ServletResponseWrapper.java:105)
-	at org.springframework.http.server.ServletServerHttpResponse.getBody(ServletServerHttpResponse.java:84)
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:313)
-	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:277)
-	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:219)
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:82)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:123)
-	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:407)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:61)
-	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:141)
-	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
-	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1300)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1111)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
-	at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:580)
-	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:516)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:392)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2022-01-05 17:53:02.091 [http-nio-8088-exec-3] [ExceptionHandler]-[WARN] ExceptionHandlerConfiguration--runtimeExceptionHandler,message:getWriter() has already been called for this response
-2022-01-05 17:53:02.092 [http-nio-8088-exec-3] [o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver]-[WARN] Failure in @ExceptionHandler com.aibaixun.common.exception.GlobalExceptionHandler#runtimeExceptionHandler(RuntimeException)
-java.lang.IllegalStateException: getWriter() has already been called for this response
-	at org.apache.catalina.connector.Response.getOutputStream(Response.java:550)
-	at org.apache.catalina.connector.ResponseFacade.getOutputStream(ResponseFacade.java:210)
-	at javax.servlet.ServletResponseWrapper.getOutputStream(ServletResponseWrapper.java:105)
-	at org.springframework.http.server.ServletServerHttpResponse.getBody(ServletServerHttpResponse.java:84)
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:313)
-	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:277)
-	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:219)
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:82)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:123)
-	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:407)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:61)
-	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:141)
-	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
-	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1300)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1111)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
-	at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:580)
-	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:516)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:392)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2022-01-05 18:04:54.416 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
-2022-01-05 18:04:54.751 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2022-01-05 18:04:54.826 [main] [o.m.s.m.ClassPathMapperScanner]-[WARN] No MyBatis mapper was found in '[com.aibaixun.gail.mapper]' package. Please check your configuration.
-2022-01-05 18:04:56.989 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 18:04:56.994 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
-2022-01-05 18:04:58.126 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 09:40:44.790 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 09:40:45.203 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 09:40:48.504 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 09:40:48.509 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 09:40:49.232 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 09:54:12.297 [sonice1024 housekeeper] [c.z.h.p.HikariPool]-[WARN] sonice1024 - Thread starvation or clock leap detected (housekeeper delta=9m11s244ms823µs500ns).
+2022-01-07 10:03:19.446 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:03:19.792 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:03:22.805 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:03:22.809 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:03:23.450 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 10:04:28.653 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:04:28.996 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:04:32.066 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:04:32.070 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:04:32.769 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 10:10:38.910 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:10:39.252 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:10:42.631 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:10:42.636 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:10:43.332 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 10:14:48.913 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:14:49.240 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:14:52.352 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:14:52.356 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:14:53.046 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 10:22:37.673 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:22:38.079 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:22:41.258 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:22:41.263 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:22:41.976 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 10:48:12.651 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:48:12.985 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:48:16.138 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:48:16.141 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:48:16.850 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 10:52:04.438 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:52:04.783 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:52:08.183 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:52:08.188 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:52:08.908 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 10:55:48.882 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:55:49.235 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 10:55:52.404 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:55:52.408 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 10:55:53.092 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 11:00:56.514 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:00:56.851 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:00:58.525 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'restAuthenticationProvider': Unsatisfied dependency expressed through field 'passwordEncoder'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.aibaixun.common.autoconfig.RedisConfig': Unsatisfied dependency expressed through method 'setRedisTemplate' parameter 0; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'redisTemplate': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-01-07 11:06:27.486 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:06:27.825 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:06:30.989 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'baseThreadPool' defined in class path resource [com/aibaixun/common/autoconfig/AsyncConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [java.util.concurrent.Executor]: Factory method 'getAsyncExecutor' threw exception; nested exception is java.lang.NullPointerException
+2022-01-07 11:08:58.687 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:08:58.691 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:08:59.540 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:08:59.546 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:08:59.876 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:09:03.129 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'baseThreadPool' defined in class path resource [com/aibaixun/common/autoconfig/AsyncConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [java.util.concurrent.Executor]: Factory method 'getAsyncExecutor' threw exception; nested exception is java.lang.NullPointerException
+2022-01-07 11:09:12.224 [main] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Start destroying NacosRestTemplate
+2022-01-07 11:09:12.225 [main] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Destruction of the end
+2022-01-07 11:11:06.386 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:11:06.393 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:11:50.638 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:11:50.642 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:12:44.496 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:12:44.500 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:12:45.378 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:12:45.384 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:12:45.796 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:12:47.481 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'restAuthenticationProvider': Unsatisfied dependency expressed through field 'passwordEncoder'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.aibaixun.common.autoconfig.RedisConfig': Unsatisfied dependency expressed through method 'setRedisTemplate' parameter 0; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'redisTemplate': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-01-07 11:14:08.841 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:14:08.845 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:14:09.673 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:14:09.677 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:14:10.001 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:14:11.624 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'restAuthenticationProvider': Unsatisfied dependency expressed through field 'passwordEncoder'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.aibaixun.common.autoconfig.RedisConfig': Invocation of init method failed; nested exception is java.lang.NullPointerException
+2022-01-07 11:14:50.378 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:14:50.386 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:14:51.225 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:14:51.230 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:14:51.553 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:14:59.046 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'restAuthenticationProvider': Unsatisfied dependency expressed through field 'passwordEncoder'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.aibaixun.common.autoconfig.RedisConfig': Invocation of init method failed; nested exception is java.lang.NullPointerException
+2022-01-07 11:15:53.068 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:15:53.075 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:15:53.933 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:15:53.938 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:15:54.282 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:15:56.193 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'restAuthenticationProvider': Unsatisfied dependency expressed through field 'passwordEncoder'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisTemplate' defined in class path resource [com/aibaixun/common/autoconfig/RedisConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Factory method 'redisTemplate' threw exception; nested exception is java.lang.NullPointerException
+2022-01-07 11:16:12.545 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:16:12.551 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:16:13.425 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:16:13.429 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:16:13.767 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:16:36.236 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'restAuthenticationProvider': Unsatisfied dependency expressed through field 'passwordEncoder'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisTemplate' defined in class path resource [com/aibaixun/common/autoconfig/RedisConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Factory method 'redisTemplate' threw exception; nested exception is java.lang.NullPointerException
+2022-01-07 11:16:41.459 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:16:41.465 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:16:42.307 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:16:42.311 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:16:42.650 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:16:55.580 [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext]-[WARN] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'restAuthenticationProvider': Unsatisfied dependency expressed through field 'passwordEncoder'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'redisTemplate'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisTemplate' defined in class path resource [com/aibaixun/common/autoconfig/RedisConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.core.RedisTemplate]: Factory method 'redisTemplate' threw exception; nested exception is java.lang.NullPointerException
+2022-01-07 11:17:50.743 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application] & group[DEFAULT_GROUP]
+2022-01-07 11:17:50.756 [main] [c.a.c.n.c.NacosPropertySourceBuilder]-[WARN] Ignore the empty nacos configuration and get it based on dataId[gail-application.yaml] & group[DEFAULT_GROUP]
+2022-01-07 11:17:51.613 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:17:51.618 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:17:51.965 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:18:00.248 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:18:00.253 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:18:00.957 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 11:18:24.772 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Start destroying NacosRestTemplate
+2022-01-07 11:18:24.773 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Destruction of the end
+2022-01-07 11:18:24.774 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Start destroying NacosRestTemplate
+2022-01-07 11:18:24.774 [SpringContextShutdownHook] [c.a.n.c.naming]-[WARN] [NamingHttpClientManager] Destruction of the end
+2022-01-07 11:18:33.241 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:18:33.583 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:18:36.662 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:18:36.665 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:18:37.367 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 11:19:31.230 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:19:31.572 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:19:34.668 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:19:34.672 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:19:35.359 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 11:21:13.178 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:21:13.505 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:21:16.619 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:21:16.622 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:21:17.316 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 11:39:45.594 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:39:45.917 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:39:48.977 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:39:48.986 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:39:49.669 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 11:52:43.137 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:52:43.485 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:52:46.664 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:52:46.668 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:52:47.373 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 11:55:46.618 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:55:46.954 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 11:55:50.033 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:55:50.036 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 11:55:50.772 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 13:52:05.520 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 13:52:05.853 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 13:52:09.010 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 13:52:09.014 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 13:52:09.729 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.
+2022-01-07 13:55:28.987 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2022-01-07 13:55:29.325 [main] [o.s.b.a.e.EndpointId]-[WARN] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-01-07 13:55:32.522 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 13:55:32.526 [main] [c.n.c.s.URLConfigurationSource]-[WARN] No URLs will be polled as dynamic configuration sources.
+2022-01-07 13:55:33.262 [main] [o.s.c.s.o.SpringCloudSecurityAutoConfiguration]-[WARN] All Spring Cloud Security modules and starters are deprecated. They will be moved to individual projects in the next major release.

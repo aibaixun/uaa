@@ -1,7 +1,8 @@
+/*
 package com.aibaixun.gail.filter;
 
-import com.aibaixun.gail.config.MyUserService;
 import com.aibaixun.gail.config.SecurityConfig;
+import com.aibaixun.gail.service.IAuthUserService;
 import com.aibaixun.gail.utils.CustomUtils;
 import com.aibaixun.gail.utils.JsonData;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -18,16 +19,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+*/
 /**
  * 自定义请求过滤器，token没有或者不正确的时候，
  * 告诉用户执行相应操作，token正确且未认真的情况下则放行请求，
  * 交由认证过滤器进行认证操作
- */
+ *//*
+
 public class OncePerRequestAuthoricationFilter extends BasicAuthenticationFilter {
 
     StringRedisTemplate stringRedisTemplate;
 
-    MyUserService userService;
+    IAuthUserService userService;
 
     public OncePerRequestAuthoricationFilter(AuthenticationManager authenticationManager, RedisTemplate redisTemplate, MyUserService userService) {
         super(authenticationManager);
@@ -64,3 +67,4 @@ public class OncePerRequestAuthoricationFilter extends BasicAuthenticationFilter
         super.doFilterInternal(request,response,chain);
     }
 }
+*/

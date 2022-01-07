@@ -4,7 +4,7 @@ spring:
 #  banner:
 #    location: /banner.txt
   application:
-    name: gail-application
+    name: gail-application-dev.yaml
   profiles:
     active: dev
   cloud:
@@ -12,7 +12,7 @@ spring:
       config:
         enabled: false
         server-addr: 172.16.7.152:8848
-        namespace: public
+        namespace: dev
         file-extension: yaml
         prefix: gail-application
       discovery:
@@ -21,3 +21,4 @@ spring:
         username: nacos
         password: nacos
         group: starSpace
+

@@ -1,5 +1,8 @@
 package com.aibaixun.gail.filter;
 
+import com.aibaixun.common.redis.util.RedisRepository;
+import com.aibaixun.gail.config.SecurityConstants;
+import com.aibaixun.gail.entity.AuthUser;
 import com.aibaixun.gail.entity.UserPrincipal;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
@@ -7,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -14,6 +18,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,42 +27,43 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-
-public class RestEmailProcessingFilter  extends AbstractAuthenticationProcessingFilter {
+public class RestReflashProcessingFilter extends AbstractAuthenticationProcessingFilter {
     // todo
-    Logger logger = LoggerFactory.getLogger("权限");
+    Logger log = LoggerFactory.getLogger("权限");
 
-    private ObjectMapper objectMapper = new ObjectMapper();
     private final AuthenticationSuccessHandler successHandler;
     private final AuthenticationFailureHandler failureHandler;
-    public RestEmailProcessingFilter(String defaultProcessUrl, AuthenticationSuccessHandler successHandler,
-                                      AuthenticationFailureHandler failureHandler) {
+    private final RedisRepository redisRepository;
+    public RestReflashProcessingFilter(String defaultProcessUrl, AuthenticationSuccessHandler successHandler,
+                                       AuthenticationFailureHandler failureHandler, RedisRepository redisRepository) {
 
         super(defaultProcessUrl);
         this.successHandler = successHandler;
         this.failureHandler = failureHandler;
+        this.redisRepository = redisRepository;
     }
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
         if (!HttpMethod.POST.name().equals(request.getMethod())) {
-            if(logger.isDebugEnabled()) {
-                logger.debug("Authentication method not supported. Request method: " + request.getMethod());
+            if(log.isDebugEnabled()) {
+                log.debug("Authentication method not supported. Request method: " + request.getMethod());
             }
             throw new AuthenticationServiceException("不支持该认证身份方法");
         }
-        Map<String,String> longinUser = new HashMap<>();
-        try {
-            longinUser = objectMapper.readValue(request.getReader(), HashMap.class);
-        } catch (Exception e) {
-            throw new AuthenticationServiceException("错误请求");
+        String token = request.getHeader(SecurityConstants.TOKENFIELD);
+        if (StringUtils.isEmpty(token)){
+            throw new BadCredentialsException("token为空！");
+        }
+        AuthUser user = (AuthUser)redisRepository.get(SecurityConstants.TOKENPREFIX + token);
+        if (user==null){
+            throw new BadCredentialsException("token已过期！");
         }
 
-        if (StringUtils.isBlank(longinUser.get("email")) || StringUtils.isBlank(longinUser.get("password"))) {
-            throw new AuthenticationServiceException("必须提供用户名和密码");
-        }
-        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.EMAIL,longinUser.get("email"));
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(principal, longinUser.get("password"));
+        //redis清除token
+        redisRepository.del(SecurityConstants.TOKENPREFIX + token);
+        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.REFLASH,user.getUserId().toString());
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(principal, null);
         return this.getAuthenticationManager().authenticate(authenticationToken);
     }
 

@@ -1,6 +1,7 @@
 package com.aibaixun.gail.filter;
 
-import com.aibaixun.gail.config.UserPrincipal;
+import com.aibaixun.gail.config.SecurityConstants;
+import com.aibaixun.gail.entity.UserPrincipal;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -53,11 +54,11 @@ public class RestUserNameProcessingFilter extends AbstractAuthenticationProcessi
             throw new AuthenticationServiceException("错误请求");
         }
 
-        if (StringUtils.isBlank(longinUser.get("userName")) || StringUtils.isBlank(longinUser.get("password"))) {
+        if (StringUtils.isBlank(longinUser.get(SecurityConstants.USERNAMEFIELD)) || StringUtils.isBlank(longinUser.get(SecurityConstants.PASSWORDFIELD))) {
             throw new AuthenticationServiceException("必须提供用户名和密码");
         }
-        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.MOBILE,longinUser.get("mobile"));
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(principal, longinUser.get("password"));
+        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.USERNAME,longinUser.get(SecurityConstants.USERNAMEFIELD));
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(principal, longinUser.get(SecurityConstants.PASSWORDFIELD));
         return this.getAuthenticationManager().authenticate(authenticationToken);
     }
 

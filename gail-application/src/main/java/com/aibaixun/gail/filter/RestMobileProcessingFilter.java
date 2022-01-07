@@ -1,6 +1,7 @@
 package com.aibaixun.gail.filter;
 
-import com.aibaixun.gail.config.UserPrincipal;
+import com.aibaixun.common.redis.util.RedisRepository;
+import com.aibaixun.gail.entity.UserPrincipal;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -14,7 +15,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +32,7 @@ public class RestMobileProcessingFilter  extends AbstractAuthenticationProcessin
     private final AuthenticationSuccessHandler successHandler;
     private final AuthenticationFailureHandler failureHandler;
     public RestMobileProcessingFilter(String defaultProcessUrl, AuthenticationSuccessHandler successHandler,
-                                     AuthenticationFailureHandler failureHandler) {
+                                      AuthenticationFailureHandler failureHandler) {
 
         super(defaultProcessUrl);
         this.successHandler = successHandler;

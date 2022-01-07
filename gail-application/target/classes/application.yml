@@ -79,3 +79,7 @@ bx:
     version:
     basePackage:
     path:
+
+gail:
+  token-expired: 3600
+  reflash-token-expired: 3600

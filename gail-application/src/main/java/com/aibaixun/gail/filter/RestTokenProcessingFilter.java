@@ -1,11 +1,7 @@
 package com.aibaixun.gail.filter;
 
-import com.aibaixun.gail.config.UserPrincipal;
-import com.aibaixun.gail.handle.RestAuthenticationFailureHandler;
-import org.apache.commons.lang3.StringUtils;
+import com.aibaixun.gail.entity.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -20,20 +16,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class RestTokenProcessingFilter extends AbstractAuthenticationProcessingFilter {
 
-    private final AuthenticationSuccessHandler successHandler;
-    private final AuthenticationFailureHandler failureHandler;
-
     @Autowired
-    public RestTokenProcessingFilter( RequestMatcher matcher, AuthenticationSuccessHandler successHandler,
-                                                  AuthenticationFailureHandler failureHandler) {
+    public RestTokenProcessingFilter( RequestMatcher matcher) {
         super(matcher);
-        this.failureHandler = failureHandler;
-        this.successHandler = successHandler;
     }
 
     @Override
@@ -56,6 +44,5 @@ public class RestTokenProcessingFilter extends AbstractAuthenticationProcessingF
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
         SecurityContextHolder.clearContext();
-        failureHandler.onAuthenticationFailure(request, response, failed);
     }
 }
