@@ -12,7 +12,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -37,26 +36,26 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Autowired
     private IRoleService roleService;
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public AuthUser loadUserByUsername(String username) throws UsernameNotFoundException {
         return loadUserByAuth(UserPrincipal.Type.USERNAME,username);
     }
 
     @Override
-    public UserDetails loadUserByMobile(String mobile) throws UsernameNotFoundException {
+    public AuthUser loadUserByMobile(String mobile) throws UsernameNotFoundException {
         return loadUserByAuth(UserPrincipal.Type.MOBILE,mobile);
     }
 
     @Override
-    public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
+    public AuthUser loadUserByEmail(String email) throws UsernameNotFoundException {
         return loadUserByAuth(UserPrincipal.Type.EMAIL,email);
     }
 
     @Override
-    public UserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
+    public AuthUser loadUserByUserId(String userId) throws UsernameNotFoundException {
         return loadUserByAuth(UserPrincipal.Type.REFLASH,userId);
     }
 
-    private UserDetails loadUserByAuth(UserPrincipal.Type type, String value) throws UsernameNotFoundException {
+    private AuthUser loadUserByAuth(UserPrincipal.Type type, String value) throws UsernameNotFoundException {
         //根据用户名查找用户
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
         if (type==UserPrincipal.Type.USERNAME){

@@ -74,7 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService()).passwordEncoder(bCryptPasswordEncoder());
+        //auth.userDetailsService(userDetailsService()).passwordEncoder(bCryptPasswordEncoder());
         auth.authenticationProvider(restAuthenticationProvider);
     }
 
@@ -106,7 +106,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 
                 //需求认证授权
-                .and().authorizeRequests().antMatchers("/gail/**").authenticated()
+                .and().authorizeRequests().antMatchers("/gail/**").access("@authPermissionService.hasPermission()")
                 //任何请求方式
                 .anyRequest().permitAll()
 

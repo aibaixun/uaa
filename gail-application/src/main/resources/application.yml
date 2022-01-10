@@ -40,6 +40,19 @@ spring:
         - 172.16.7.152:7005
       max-redirects: 3
 
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  global-config:
+    banner: false
+    db-config:
+      id-type: assign_id
+#      logic-delete-field: deleted
+#      logic-delete-value: 1
+#      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+
 #自封在应用配置
 bx:
   # db:mybatis plus 配置
@@ -68,7 +81,7 @@ bx:
       # 修改时间字段
       updateTimeField: true
     # 数据库类型
-    dbType: mysql
+    dbType: MYSQL
 
   # swagger 配置
   swagger:

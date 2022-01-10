@@ -1,5 +1,6 @@
 package com.aibaixun.gail.filter;
 
+import com.aibaixun.basic.entity.BaseAuthUser;
 import com.aibaixun.common.redis.util.RedisRepository;
 import com.aibaixun.common.util.JsonUtil;
 import com.aibaixun.gail.config.SecurityConstants;
@@ -56,7 +57,7 @@ public class RestReflashProcessingFilter extends AbstractAuthenticationProcessin
         if (StringUtils.isEmpty(token)){
             throw new BadCredentialsException("token为空！");
         }
-        AuthUser user = JsonUtil.toObject((String) redisRepository.get(SecurityConstants.TOKENPREFIX + token),AuthUser.class);
+        BaseAuthUser user = (BaseAuthUser)redisRepository.get(SecurityConstants.TOKENPREFIX + token);
         if (user==null){
             throw new BadCredentialsException("token已过期！");
         }

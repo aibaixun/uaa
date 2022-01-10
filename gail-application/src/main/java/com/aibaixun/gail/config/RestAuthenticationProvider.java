@@ -1,7 +1,7 @@
 package com.aibaixun.gail.config;
 
+import com.aibaixun.basic.entity.BaseAuthUser;
 import com.aibaixun.common.redis.util.RedisRepository;
-import com.aibaixun.common.util.JsonUtil;
 import com.aibaixun.gail.entity.AuthUser;
 import com.aibaixun.gail.entity.UserPrincipal;
 import com.aibaixun.gail.service.IAuthUserService;
@@ -11,7 +11,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -37,7 +36,7 @@ public class RestAuthenticationProvider  implements AuthenticationProvider {
         }
 
         UserPrincipal userPrincipal = (UserPrincipal) principal;
-        UserDetails authUser = null;
+        AuthUser authUser = null;
         if (userPrincipal.getType()==UserPrincipal.Type.USERNAME){
             authUser = authUserService.loadUserByUsername(userPrincipal.getValue());
         } else if (userPrincipal.getType()==UserPrincipal.Type.MOBILE){
@@ -45,7 +44,11 @@ public class RestAuthenticationProvider  implements AuthenticationProvider {
         } else if (userPrincipal.getType()==UserPrincipal.Type.EMAIL){
             authUser = authUserService.loadUserByEmail(userPrincipal.getValue());
         }else if (userPrincipal.getType()==UserPrincipal.Type.TOKEN){
-            authUser = JsonUtil.toObject((String) redisRepository.get(SecurityConstants.TOKENPREFIX+userPrincipal.getValue()), AuthUser.class);
+            Object o = redisRepository.get(SecurityConstants.TOKENPREFIX + userPrincipal.getValue());
+            if (o==null){
+                throw new BadCredentialsException("令牌过期！");
+            }
+            authUser = new AuthUser((BaseAuthUser) o);
         }else if (userPrincipal.getType()==UserPrincipal.Type.REFLASH){
             authUser = authUserService.loadUserByUserId(userPrincipal.getValue());
         }

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Api("授权")
 @RestController
-@RequestMapping("/gail")
+@RequestMapping("/gail/token")
 public class AuthController {
     @ApiOperation("权限")
     @GetMapping(value = "/permission")

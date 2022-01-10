@@ -1,5 +1,6 @@
 package com.aibaixun.gail.filter;
 
+import com.aibaixun.basic.entity.BaseAuthUser;
 import com.aibaixun.basic.result.JsonResult;
 import com.aibaixun.common.redis.util.RedisRepository;
 import com.aibaixun.common.util.JsonUtil;
@@ -53,8 +54,9 @@ public class OncePerRequestAuthoricationFilter extends BasicAuthenticationFilter
         if (o==null){
             CustomUtils.sendJsonMessage(response,JsonResult.failed("凭证已过期！"));
         }
-        AuthUser authUser = JsonUtil.toObject((String) o,AuthUser.class);
+        BaseAuthUser authUser = (BaseAuthUser)o;
         try{
+            //todo
             //UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken=new UsernamePasswordAuthenticationToken(authUser,null,authUser.getAuthorities());
             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken=new UsernamePasswordAuthenticationToken(authUser,null, List.of(new SimpleGrantedAuthority("admin")));
             response.setHeader(SecurityConstants.TOKENFIELD,token);

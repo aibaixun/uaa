@@ -1,16 +1,14 @@
 package com.aibaixun.gail.service;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import com.aibaixun.gail.entity.AuthUser;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-public interface IAuthUserService extends UserDetailsService {
-    @Override
-    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+public interface IAuthUserService{
+    AuthUser loadUserByUsername(String username) throws UsernameNotFoundException;
 
-    UserDetails loadUserByMobile(String mobile) throws UsernameNotFoundException;
+    AuthUser loadUserByMobile(String mobile) throws UsernameNotFoundException;
 
-    UserDetails loadUserByEmail(String email) throws UsernameNotFoundException;
+    AuthUser loadUserByEmail(String email) throws UsernameNotFoundException;
 
-    UserDetails loadUserByUserId(String userId) throws UsernameNotFoundException;
+    AuthUser loadUserByUserId(String userId) throws UsernameNotFoundException;
 }
