@@ -1,4 +1,3 @@
-/*
 package com.aibaixun.gail.support;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
@@ -32,4 +31,3 @@ public class BaseEntityMetaObjectHandler implements MetaObjectHandler {
         this.userHolder = userHolder;
     }
 }
-*/
