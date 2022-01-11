@@ -1,7 +1,10 @@
 package com.aibaixun.gail.service;
 
 import com.aibaixun.gail.entity.AuthLog;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IAuthLogService extends IService<AuthLog> {
 
+    Boolean delByUserIds(List<String> userIds);
+
+    IPage<AuthLog> page(Integer page, Integer pageSize, String name, String tenantId);
+
+    List<AuthLog> list(String name, String tenantId);
+
+    Boolean checkSave(AuthLog authLog);
+
+    Boolean checkUpdate(AuthLog authLog);
+
+    Boolean del(List<String> authLogIds);
+
+    AuthLog info(String id);
 }

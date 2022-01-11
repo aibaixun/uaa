@@ -1,6 +1,8 @@
 package com.aibaixun.gail.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -12,103 +14,43 @@ import java.io.Serializable;
  * @since 2022-01-06
  */
 @TableName("t_app")
-public class App implements Serializable {
+public class App extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * id
-     */
-    private String id;
-
-    /**
-     * 类型
-     */
+    @ApiModelProperty("类型")
     private String type;
 
-    /**
-     * 名称
-     */
+    @ApiModelProperty("名称")
     private String name;
 
-    /**
-     * 编码
-     */
+    @ApiModelProperty("编码")
     private String code;
 
-    /**
-     * 路径
-     */
+    @ApiModelProperty("路径")
     private String path;
 
-    /**
-     * 路由
-     */
+    @ApiModelProperty("路由")
     private String route;
 
-    /**
-     * 秘钥
-     */
+    @ApiModelProperty("秘钥")
     private String secret;
 
-    /**
-     * 备注
-     */
+    @ApiModelProperty("备注")
     private String remark;
 
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    private Long createTime;
-
-    /**
-     * 更新人
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     */
-    private Long updateTime;
-
-    /**
-     * 是否删除
-     */
-    private Integer deleted;
-
-    /**
-     * 图标
-     */
+    @ApiModelProperty("图标")
     private String avatar;
 
-    /**
-     * 状态
-     */
+    @ApiModelProperty("状态")
     private String status;
 
-    /**
-     * 视图拓展
-     */
+    @ApiModelProperty("视图拓展")
     private String view;
 
-    /**
-     * 排序
-     */
+    @ApiModelProperty("排序")
     private Integer sort;
 
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getType() {
         return type;
@@ -166,46 +108,6 @@ public class App implements Serializable {
         this.remark = remark;
     }
 
-    public String getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy;
-    }
-
-    public Long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Long getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Integer getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(Integer deleted) {
-        this.deleted = deleted;
-    }
-
     public String getAvatar() {
         return avatar;
     }
@@ -236,28 +138,5 @@ public class App implements Serializable {
 
     public void setSort(Integer sort) {
         this.sort = sort;
-    }
-
-    @Override
-    public String toString() {
-        return "App{" +
-        "id=" + id +
-        ", type=" + type +
-        ", name=" + name +
-        ", code=" + code +
-        ", path=" + path +
-        ", route=" + route +
-        ", secret=" + secret +
-        ", remark=" + remark +
-        ", createBy=" + createBy +
-        ", createTime=" + createTime +
-        ", updateBy=" + updateBy +
-        ", updateTime=" + updateTime +
-        ", deleted=" + deleted +
-        ", avatar=" + avatar +
-        ", status=" + status +
-        ", view=" + view +
-        ", sort=" + sort +
-        "}";
     }
 }

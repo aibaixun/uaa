@@ -1,6 +1,9 @@
 package com.aibaixun.gail.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -12,68 +15,31 @@ import java.io.Serializable;
  * @since 2022-01-06
  */
 @TableName("t_role")
-public class Role implements Serializable {
+public class Role extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * id
-     */
-    private String id;
-
-    /**
-     * 类型
-     */
+    @ApiModelProperty("类型")
     private String type;
 
-    /**
-     * 名称
-     */
+    @ApiModelProperty("名称")
     private String name;
 
-    /**
-     * 编码
-     */
+    @ApiModelProperty("编码")
     private String code;
 
-    /**
-     * 备注
-     */
+    @ApiModelProperty("租户")
+    private String tenantId;
+
+    @ApiModelProperty("应用id")
+    private String appId;
+
+    @ApiModelProperty("应用名称")
+    @TableField(exist = false)
+    private String appName;
+
+    @ApiModelProperty("备注")
     private String remark;
-
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    private Long createTime;
-
-    /**
-     * 更新人
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     */
-    private Long updateTime;
-
-    /**
-     * 是否删除
-     */
-    private Integer deleted;
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getType() {
         return type;
@@ -107,59 +73,27 @@ public class Role implements Serializable {
         this.remark = remark;
     }
 
-    public String getCreateBy() {
-        return createBy;
+    public String getTenantId() {
+        return tenantId;
     }
 
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy;
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
     }
 
-    public Long getCreateTime() {
-        return createTime;
+    public String getAppId() {
+        return appId;
     }
 
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public String getUpdateBy() {
-        return updateBy;
+    public String getAppName() {
+        return appName;
     }
 
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Long getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Integer getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(Integer deleted) {
-        this.deleted = deleted;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-        "id=" + id +
-        ", type=" + type +
-        ", name=" + name +
-        ", code=" + code +
-        ", remark=" + remark +
-        ", createBy=" + createBy +
-        ", createTime=" + createTime +
-        ", updateBy=" + updateBy +
-        ", updateTime=" + updateTime +
-        ", deleted=" + deleted +
-        "}";
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 }

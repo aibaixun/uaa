@@ -1,6 +1,8 @@
 package com.aibaixun.gail.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -12,98 +14,39 @@ import java.io.Serializable;
  * @since 2022-01-06
  */
 @TableName("t_tenant")
-public class Tenant implements Serializable {
+public class Tenant extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * id
-     */
-    private String id;
-
-    /**
-     * 类型
-     */
+    @ApiModelProperty("类型")
     private String type;
 
-    /**
-     * 简称
-     */
+    @ApiModelProperty("简称")
     private String nickname;
 
-    /**
-     * 全称
-     */
+    @ApiModelProperty("全称")
     private String fullname;
 
-    /**
-     * 电话
-     */
+    @ApiModelProperty("电话")
     private String phone;
 
-    /**
-     * 邮箱
-     */
+    @ApiModelProperty("邮箱")
     private String email;
 
-    /**
-     * 头像
-     */
+    @ApiModelProperty("头像")
     private String avatar;
 
-    /**
-     * 备注
-     */
+    @ApiModelProperty("备注")
     private String remark;
 
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    private Long createTime;
-
-    /**
-     * 更新人
-     */
-    private String updateBy;
-
-    /**
-     * 更新时间
-     */
-    private Long updateTime;
-
-    /**
-     * 状态
-     */
+    @ApiModelProperty("状态")
     private String staus;
 
-    /**
-     * 证件
-     */
+    @ApiModelProperty("证件")
     private String identity;
 
-    /**
-     * 地址
-     */
+    @ApiModelProperty("地址")
     private String address;
-
-    /**
-     * 是否删除
-     */
-    private Integer deleted;
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getType() {
         return type;
@@ -161,38 +104,6 @@ public class Tenant implements Serializable {
         this.remark = remark;
     }
 
-    public String getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy;
-    }
-
-    public Long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Long getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
-
     public String getStaus() {
         return staus;
     }
@@ -215,35 +126,5 @@ public class Tenant implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public Integer getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(Integer deleted) {
-        this.deleted = deleted;
-    }
-
-    @Override
-    public String toString() {
-        return "Tenant{" +
-        "id=" + id +
-        ", type=" + type +
-        ", nickname=" + nickname +
-        ", fullname=" + fullname +
-        ", phone=" + phone +
-        ", email=" + email +
-        ", avatar=" + avatar +
-        ", remark=" + remark +
-        ", createBy=" + createBy +
-        ", createTime=" + createTime +
-        ", updateBy=" + updateBy +
-        ", updateTime=" + updateTime +
-        ", staus=" + staus +
-        ", identity=" + identity +
-        ", address=" + address +
-        ", deleted=" + deleted +
-        "}";
     }
 }

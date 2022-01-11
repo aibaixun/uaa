@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
-@Api("授权")
+@Api(tags = "授权")
 @RestController
 @RequestMapping("/gail/token")
 public class AuthController {

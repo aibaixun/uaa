@@ -1,7 +1,11 @@
 package com.aibaixun.gail.service;
 
+import com.aibaixun.basic.exception.BaseException;
 import com.aibaixun.gail.entity.Tenant;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,19 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITenantService extends IService<Tenant> {
 
+    List<String> appIdsBytenantId(String tenantId);
+
+    IPage<Tenant> page(Integer page, Integer pageSize, String name);
+
+    List<Tenant> list(String name);
+
+    Boolean checkName(String id, String name);
+
+    Boolean checkSave(Tenant tenant) throws BaseException;
+
+    Boolean checkUpdate(Tenant tenant) throws BaseException;
+
+    Boolean del(List<String> tenantIds);
+
+    Tenant info(String id);
 }

@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aibaixun.gail.mapper.AuthLogMapper">
+    <select id="list" resultType="com.aibaixun.gail.entity.AuthLog">
+        select a.*,u.realname
+        from t_auth_log a, t_user u where a.user_id=u.id
+        <if test="#{name} != null and #{name} != ''">
+            and u.name like concat(#{name},'%')
+        </if>
+        <if test="#{tenantId} != null and #{tenantId} != ''">
+            and u.tenant_id=#{tenantId}
+        </if>
+        order by u.create_time desc
+    </select>
 
+    <select id="page" resultType="com.aibaixun.gail.entity.AuthLog">
+        select a.*,u.realname
+        from t_auth_log a, t_user u where a.user_id=u.id
+        <if test="#{name} != null and #{name} != ''">
+            and u.name like concat(#{name},'%')
+        </if>
+        <if test="#{tenantId} != null and #{tenantId} != ''">
+            and u.tenant_id=#{tenantId}
+        </if>
+        order by u.create_time desc
+    </select>
 </mapper>

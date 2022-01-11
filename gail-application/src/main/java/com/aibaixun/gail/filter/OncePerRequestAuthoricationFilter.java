@@ -42,6 +42,10 @@ public class OncePerRequestAuthoricationFilter extends BasicAuthenticationFilter
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+        //swagger json 导出 http://172.16.0.23:8088/v2/api-docs
+        if (request.getRequestURI().startsWith("/v2/api-docs")){
+            return;
+        }
         if (request.getRequestURI().startsWith(SecurityConfig.authUrl)){
             super.doFilterInternal(request,response,chain);
         }

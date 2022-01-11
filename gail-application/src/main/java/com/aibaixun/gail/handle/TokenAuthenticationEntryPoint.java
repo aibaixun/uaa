@@ -3,7 +3,6 @@ package com.aibaixun.gail.handle;
 import com.aibaixun.basic.result.BaseResultCode;
 import com.aibaixun.basic.result.JsonResult;
 import com.aibaixun.gail.utils.CustomUtils;
-import com.aibaixun.gail.utils.JsonData;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import javax.servlet.ServletException;

@@ -3,7 +3,6 @@ package com.aibaixun.gail.handle;
 import com.aibaixun.basic.result.BaseResultCode;
 import com.aibaixun.basic.result.JsonResult;
 import com.aibaixun.gail.utils.CustomUtils;
-import com.aibaixun.gail.utils.JsonData;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import javax.servlet.ServletException;

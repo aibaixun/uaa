@@ -16,4 +16,8 @@ import java.util.List;
  */
 public interface IRolePermissionService extends IService<RolePermission> {
     List<RolePermission> list(List<String> roleIds);
+
+    Boolean delByRoleIds(List<String> roleIds);
+
+    Boolean delByPermissionIds(List<String> permissionIds);
 }

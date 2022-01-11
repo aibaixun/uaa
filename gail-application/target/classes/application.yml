@@ -46,9 +46,9 @@ mybatis-plus:
     banner: false
     db-config:
       id-type: assign_id
-#      logic-delete-field: deleted
-#      logic-delete-value: 1
-#      logic-not-delete-value: 0
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     call-setters-on-nulls: true
@@ -60,7 +60,7 @@ bx:
     # 租户隔离
     tenant:
       # 是否开启默认是关闭
-      enable: true
+      enable: false
       # 忽略表名 不区分大消息
       ignoreTables:
         - t_da
@@ -71,7 +71,7 @@ bx:
     # 自动填充
     fill:
       # 开启填充  默认开启
-      enable: true
+      enable: false
       # insert填充  默认开启
       enableInsertFill: false
       # update填充  默认开启

@@ -9,4 +9,19 @@
         WHERE
                 r.id=ugr.role_id and ugr.user_group_id=#{userGroupId}
     </select>
+
+    <select id="page" resultType="com.aibaixun.gail.entity.Role">
+        select r.*, (select a.name from t_app a where a.id =r.app_id as app_name)
+        from t_role r where 1=1
+        <if test="#{appId} != null and #{appId} != ''">
+            and r.app_id=#{appId}
+        </if>
+        <if test="#{name} != null and #{name} != ''">
+            and r.name like concat(#{name},'%')
+        </if>
+        <if test="#{tenantId} != null and #{tenantId} != ''">
+            and a.tenant_id=#{tenantId}
+        </if>
+        order by u.create_time desc
+    </select>
 </mapper>
