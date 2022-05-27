@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aibaixun.uaa.mapper.RoleMapper">
+    <select id="selectRoleByUserGroupId" resultType="com.aibaixun.uaa.entity.Role">
+        SELECT
+                r.*
+        FROM
+                t_role r,t_user_group_role ugr
+        WHERE
+                r.id=ugr.role_id and ugr.user_group_id=#{userGroupId}
+    </select>
+
+    <select id="page" resultType="com.aibaixun.uaa.entity.Role">
+        select r.*, (select a.name from t_app a where a.id =r.app_id as app_name)
+        from t_role r where 1=1
+        <if test="#{appId} != null and #{appId} != ''">
+            and r.app_id=#{appId}
+        </if>
+        <if test="#{name} != null and #{name} != ''">
+            and r.name like concat(#{name},'%')
+        </if>
+        <if test="#{tenantId} != null and #{tenantId} != ''">
+            and a.tenant_id=#{tenantId}
+        </if>
+        order by u.create_time desc
+    </select>
+</mapper>

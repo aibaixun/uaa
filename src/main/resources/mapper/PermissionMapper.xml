@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aibaixun.uaa.mapper.PermissionMapper">
+    <select id="selectPermissionByRoleIds" resultType="com.aibaixun.uaa.entity.Permission">
+        SELECT
+                p.*
+        FROM
+                t_permission p,t_role_permission rp
+        WHERE
+                p.id=rp.permission_id and rp.id in
+            <foreach collection="roleIds" item="item" open="(" close=")" separator="," index="index">
+                #{item}
+            </foreach>
+
+    </select>
+
+    <select id="page" resultType="com.aibaixun.uaa.entity.Permission">
+        select p.*
+        from t_permission p where 1=1
+        <if test="#{appId} != null and #{appId} != ''">
+            and p.app_id=#{appId}
+        </if>
+        <if test="#{name} != null and #{name} != ''">
+            and p.name like concat(#{name},'%')
+        </if>
+        order by p.create_time desc
+    </select>
+
+    <select id="list" resultType="com.aibaixun.uaa.entity.Permission">
+        select p.*
+        from t_permission p where 1=1
+        <if test="#{appId} != null and #{appId} != ''">
+            and p.app_id=#{appId}
+        </if>
+        <if test="#{name} != null and #{name} != ''">
+            and p.name like concat(#{name},'%')
+        </if>
+        order by p.create_time desc
+    </select>
+</mapper>

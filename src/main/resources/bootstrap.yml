@@ -1,0 +1,21 @@
+server:
+  port: -1
+spring:
+  application:
+    name: uaa
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        enabled: true
+        server-addr: 172.16.7.152:8848
+        namespace: dev
+        file-extension: yaml
+        prefix: uaa
+      discovery:
+        enabled: true
+        server-addr: 172.16.7.152:8848
+        username: nacos
+        password: nacos
+
