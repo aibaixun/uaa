@@ -7,6 +7,7 @@ import com.aibaixun.uaa.entity.AuthUser;
 import com.aibaixun.uaa.entity.UserPrincipal;
 import com.aibaixun.uaa.service.IAuthUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,6 +23,7 @@ public class RestAuthenticationProvider  implements AuthenticationProvider {
     private IAuthUserService authUserService;
 
     @Autowired
+    @Lazy
     private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired

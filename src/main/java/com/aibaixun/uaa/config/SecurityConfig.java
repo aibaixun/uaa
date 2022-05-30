@@ -9,6 +9,7 @@ import com.aibaixun.uaa.handle.*;
 import com.aibaixun.uaa.service.IAuthUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -55,12 +56,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private RestAuthenticationProvider restAuthenticationProvider;
 
     @Autowired
+    @Lazy
     private AuthenticationManager authenticationManager;
 
     @Bean
     public AuthenticationManager getManager() throws Exception {
         return super.authenticationManagerBean();
     }
+
+
     //加密
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -88,7 +92,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //权限管理
         http.authorizeRequests()
-                .antMatchers("/uaa/token")
+                .antMatchers("/uaa/token","/uaa/auth")
                 .permitAll()
 
                 //注销处理

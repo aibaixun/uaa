@@ -6,18 +6,20 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @Api(tags = "授权")
 @RestController
-@RequestMapping("/uaa/token")
+@RequestMapping("/uaa/auth")
 public class AuthController {
-    @ApiOperation("权限")
-    @GetMapping(value = "/permission")
-    public JsonResult<Boolean> add(HttpServletRequest request){
-        System.out.println(request.getHeader("authentication"));
-        System.out.println(SecurityContextHolder.getContext().getAuthentication().toString());
+    @ApiOperation("权限校验")
+    @GetMapping
+    public JsonResult<Boolean> checkPath(@RequestParam("userid") String userid, @RequestParam("requestPath") String requestPath, @RequestParam("method") String method){
+        System.out.println(userid);
+        System.out.println(requestPath);
+        System.out.println(method);
         return JsonResult.success(true);
     }
 }

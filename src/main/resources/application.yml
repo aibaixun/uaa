@@ -1,21 +1,19 @@
 spring:
+  application:
+    name: uaa
   # 数据库配置
   datasource:
-    name: sonice1024
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.16.7.75:3306/uaa?useSSL=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://172.16.9.1:3306/gail
     username: mysql
     password: qRVimdEzatsf
-    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-      minimum-idle: 3
-      auto-commit: true
-      idle-timeout: 10000
-      max-lifetime: 1800000
-      connection-timeout: 30000
-      connection-test-query: SELECT 1
-
-# Redis
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.16.8.5:8848
+        namespace: dev
+        group: dev
+  # Redis
   redis:
     timeout: 6000
     lettuce:
@@ -96,3 +94,5 @@ bx:
 uaa:
   token-expired: 3600
   reflash-token-expired: 3600
+server:
+  port: 0
