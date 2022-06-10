@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://172.16.9.1:3306/gail
-    username: mysql
-    password: qRVimdEzatsf
+    username: root
+    password: bxzh123456!
   cloud:
     nacos:
       discovery:
@@ -30,12 +30,9 @@ spring:
       shutdown-timeout: 100
     cluster:
       nodes:
-        - 172.16.7.152:7000
-        - 172.16.7.152:7001
-        - 172.16.7.152:7002
-        - 172.16.7.152:7003
-        - 172.16.7.152:7004
-        - 172.16.7.152:7005
+        - 172.16.9.2:6379
+        - 172.16.9.3:6379
+        - 172.16.9.4:6379
       max-redirects: 3
 
 mybatis-plus:
