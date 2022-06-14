@@ -31,4 +31,6 @@ public interface SecurityConstants {
     String REFRESH_AUTH_URL= AUTH_URL+"/refresh";
     String LOGOUT_AUTH_URL= AUTH_URL+"/logout";
 
+    String CHECK_AUTH_URL= AUTH_URL+"/check";
+
 }

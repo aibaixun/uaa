@@ -1,12 +1,10 @@
 package com.aibaixun.uaa.service.impl;
 
 import com.aibaixun.basic.entity.AuthUserInfo;
+import com.aibaixun.uaa.entity.AuthUser;
 import com.aibaixun.uaa.entity.Permission;
 import com.aibaixun.uaa.entity.User;
-import com.aibaixun.uaa.service.IAuthPermissionService;
-import com.aibaixun.uaa.service.IPermissionService;
-import com.aibaixun.uaa.service.IRoleService;
-import com.aibaixun.uaa.service.IUserService;
+import com.aibaixun.uaa.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,6 +23,8 @@ public class AuthPermissionServiceImpl implements IAuthPermissionService {
 
     @Autowired
     private IPermissionService permissionService;
+
+    private IAuthUserService authUserService;
 
 
     @Override
@@ -45,8 +45,12 @@ public class AuthPermissionServiceImpl implements IAuthPermissionService {
 
     @Override
     public boolean hasPermission(String url, String uid, String method) {
-        // todo 鉴权
-        return true;
+        try {
+            AuthUser authUser = authUserService.loadUserByUserId(uid);
+            return hasPermission(authUser,url);
+        }catch (Exception e){
+            return false;
+        }
     }
 
     public boolean hasPermission(AuthUserInfo user, String url) {
@@ -67,5 +71,10 @@ public class AuthPermissionServiceImpl implements IAuthPermissionService {
 
     private String getRequestUri () {
         return autowiredRequest.getMethod().toUpperCase()+":"+autowiredRequest.getRequestURI();
+    }
+
+    @Autowired
+    public void setAuthUserService(IAuthUserService authUserService) {
+        this.authUserService = authUserService;
     }
 }

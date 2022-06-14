@@ -117,7 +117,6 @@ public class UaaSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
 
                 .and()
-                .addFilter(buildOncePerRequestFilter(getManager(), redisRepository, authUserService))
                 .addFilterBefore(buildUsernamePasswordFilter(), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(buildMobileFilter() , UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(buildEmailFilter() , UsernamePasswordAuthenticationFilter.class)
@@ -140,10 +139,7 @@ public class UaaSecurityConfig extends WebSecurityConfigurerAdapter {
         return source;
     }
 
-    @Bean
-    public OncePerRequestFilter buildOncePerRequestFilter(AuthenticationManager authenticationManager, RedisRepository redisRepository, IAuthUserService authUserService){
-        return new OncePerRequestFilter(authenticationManager,redisRepository,authUserService);
-    }
+
 
     @Bean
     public RestUserNameProcessingFilter buildUsernamePasswordFilter(){
@@ -167,7 +163,7 @@ public class UaaSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public RestTokenProcessingFilter buildTokenFilter(){
-        List<String> pathsToSkip = new ArrayList<>(Arrays.asList(USERNAME_AUTH_URL,MOBILE_AUTH_URL,EMAIL_AUTH_URL,REFRESH_AUTH_URL));
+        List<String> pathsToSkip = new ArrayList<>(Arrays.asList(USERNAME_AUTH_URL,MOBILE_AUTH_URL,EMAIL_AUTH_URL,REFRESH_AUTH_URL,CHECK_AUTH_URL));
         SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(pathsToSkip, "/uaa/**");
         return new RestTokenProcessingFilter(matcher);
     }
