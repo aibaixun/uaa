@@ -1,6 +1,6 @@
 package com.aibaixun.uaa.entity;
 
-import com.aibaixun.basic.entity.BaseAuthUser;
+import com.aibaixun.basic.entity.AuthUserInfo;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.util.CollectionUtils;
@@ -10,18 +10,18 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class AuthUser extends BaseAuthUser {
+public class AuthUser extends AuthUserInfo {
     private String password;
 
     public AuthUser() {}
 
-    public AuthUser(BaseAuthUser baseAuthUser) {
+    public AuthUser(AuthUserInfo baseAuthUser) {
         setUserId(baseAuthUser.getUserId());
         setUsername(baseAuthUser.getUsername());
         setTenantId(baseAuthUser.getTenantId());
         setRoleIds(baseAuthUser.getRoleIds());
         setTokenExpired(baseAuthUser.getTokenExpired());
-        setReflashTokenExpired(baseAuthUser.getReflashTokenExpired());
+        setRefreshTokenExpired(baseAuthUser.getRefreshTokenExpired());
     }
 
     public AuthUser(User user, List<Role> roles) {
@@ -32,7 +32,7 @@ public class AuthUser extends BaseAuthUser {
         setRoleIds(roles.stream().map(Role::getId).collect(Collectors.toSet()));
         //默认到期时间两分钟后
         setTokenExpired(0L);
-        setReflashTokenExpired(0L);
+        setRefreshTokenExpired(0L);
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -48,14 +48,14 @@ public class AuthUser extends BaseAuthUser {
         return password;
     }
 
-    public BaseAuthUser getBaseAuthUser(){
-        BaseAuthUser user = new BaseAuthUser();
+    public AuthUserInfo getBaseAuthUser(){
+        AuthUserInfo user = new AuthUserInfo();
         user.setUserId(getUserId());
         user.setUsername(getUsername());
         user.setTenantId(getTenantId());
         user.setRoleIds(getRoleIds());
         user.setTokenExpired(getTokenExpired());
-        user.setReflashTokenExpired(getReflashTokenExpired());
+        user.setRefreshTokenExpired(getRefreshTokenExpired());
         return user;
     }
 }

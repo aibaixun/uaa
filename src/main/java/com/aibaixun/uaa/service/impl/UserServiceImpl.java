@@ -2,6 +2,7 @@ package com.aibaixun.uaa.service.impl;
 
 import com.aibaixun.basic.exception.BaseException;
 import com.aibaixun.basic.result.BaseResultCode;
+import com.aibaixun.uaa.auth.UserPrincipal;
 import com.aibaixun.uaa.entity.*;
 import com.aibaixun.uaa.mapper.UserMapper;
 import com.aibaixun.uaa.service.*;
@@ -60,7 +61,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public AuthUser loadUserByUserId(String userId) throws UsernameNotFoundException {
-        return loadUserByAuth(UserPrincipal.Type.REFLASH,userId);
+        return loadUserByAuth(UserPrincipal.Type.REFRESH,userId);
     }
 
     private AuthUser loadUserByAuth(UserPrincipal.Type type, String value) throws UsernameNotFoundException {
@@ -72,7 +73,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             queryWrapper.eq(User::getMobile,value);
         } else if (type==UserPrincipal.Type.EMAIL){
             queryWrapper.eq(User::getEmail,value);
-        }else if (type==UserPrincipal.Type.REFLASH){
+        }else if (type==UserPrincipal.Type.REFRESH){
             queryWrapper.eq(User::getId,value);
         } else{
             throw new UsernameNotFoundException(value);
@@ -89,7 +90,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         AuthUser authUser = new AuthUser(user, roles);
         //token有效时间
         authUser.setTokenExpired(System.currentTimeMillis()+(tokenExpired*1000));
-        authUser.setReflashTokenExpired(System.currentTimeMillis()+(reflashTokenExpired*1000));
+        authUser.setRefreshTokenExpired(System.currentTimeMillis()+(reflashTokenExpired*1000));
         return authUser;
     }
 

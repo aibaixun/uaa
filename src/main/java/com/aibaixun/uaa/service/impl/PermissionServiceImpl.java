@@ -31,13 +31,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
 
     @Override
     public List<Permission> listByRoleIds(List<String> roleIds) {
-        /*List<Permission> result = new ArrayList<>();
-        List<RolePermission> rolePermissions = rolePermissionService.list(roleIds);
-        if (!CollectionUtils.isEmpty(rolePermissions)) {
-            List<String> permissionIds = rolePermissions.stream().map(RolePermission::getPermissionId).collect(Collectors.toList());
-            result = listByIds(permissionIds);
-        }
-        return result;*/
         return baseMapper.selectPermissionByRoleIds(roleIds);
 
     }

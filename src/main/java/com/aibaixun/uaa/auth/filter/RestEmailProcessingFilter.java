@@ -1,37 +1,39 @@
-package com.aibaixun.uaa.filter;
+package com.aibaixun.uaa.auth.filter;
 
-import com.aibaixun.uaa.config.SecurityConstants;
-import com.aibaixun.uaa.entity.UserPrincipal;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.aibaixun.uaa.auth.SecurityConstants;
+import com.aibaixun.uaa.auth.UserPrincipal;
+import com.aibaixun.uaa.auth.token.UaaAuthenticationToken;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpMethod;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationServiceException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
+
+import static com.aibaixun.uaa.utils.CustomUtils.formatRequestBody;
+
+/**
+ * 邮箱 身份认证
+ * @author wangxiao
+ */
+public class RestEmailProcessingFilter  extends AbstractAuthenticationProcessingFilter {
 
 
-public class RestUserNameProcessingFilter extends AbstractAuthenticationProcessingFilter {
-    // todo
-    Logger log = LoggerFactory.getLogger("权限");
-    private ObjectMapper objectMapper = new ObjectMapper();
+
     private final AuthenticationSuccessHandler successHandler;
     private final AuthenticationFailureHandler failureHandler;
-
-    public RestUserNameProcessingFilter(String defaultProcessUrl, AuthenticationSuccessHandler successHandler,
+    public RestEmailProcessingFilter(String defaultProcessUrl, AuthenticationSuccessHandler successHandler,
                                       AuthenticationFailureHandler failureHandler) {
 
         super(defaultProcessUrl);
@@ -40,25 +42,14 @@ public class RestUserNameProcessingFilter extends AbstractAuthenticationProcessi
     }
 
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
-        if (!HttpMethod.POST.name().equals(request.getMethod())) {
-            if(log.isDebugEnabled()) {
-                log.debug("Authentication method not supported. Request method: " + request.getMethod());
-            }
-            throw new AuthenticationServiceException("不支持该认证身份方法");
-        }
-        Map<String,String> longinUser = new HashMap<>();
-        try {
-            longinUser = objectMapper.readValue(request.getReader(), HashMap.class);
-        } catch (Exception e) {
-            throw new AuthenticationServiceException("错误请求");
-        }
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
-        if (StringUtils.isBlank(longinUser.get(SecurityConstants.USERNAMEFIELD)) || StringUtils.isBlank(longinUser.get(SecurityConstants.PASSWORDFIELD))) {
+        HashMap<String,String> longinUser = formatRequestBody(request);
+        if (StringUtils.isBlank(longinUser.get(SecurityConstants.EMAIL_FIELD)) || StringUtils.isBlank(longinUser.get(SecurityConstants.PASSWORD_FIELD))) {
             throw new AuthenticationServiceException("必须提供用户名和密码");
         }
-        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.USERNAME,longinUser.get(SecurityConstants.USERNAMEFIELD));
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(principal, longinUser.get(SecurityConstants.PASSWORDFIELD));
+        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.EMAIL,longinUser.get(SecurityConstants.EMAIL_FIELD));
+        UaaAuthenticationToken authenticationToken = new UaaAuthenticationToken(principal, longinUser.get(SecurityConstants.PASSWORD_FIELD));
         return this.getAuthenticationManager().authenticate(authenticationToken);
     }
 
@@ -73,5 +64,11 @@ public class RestUserNameProcessingFilter extends AbstractAuthenticationProcessi
                                               AuthenticationException failed) throws IOException, ServletException {
         SecurityContextHolder.clearContext();
         failureHandler.onAuthenticationFailure(request, response, failed);
+    }
+
+    @Autowired
+    @Override
+    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+        super.setAuthenticationManager(authenticationManager);
     }
 }

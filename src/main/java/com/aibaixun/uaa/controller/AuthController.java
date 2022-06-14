@@ -15,11 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/uaa/auth")
 public class AuthController {
     @ApiOperation("权限校验")
-    @GetMapping
+    @GetMapping("/check")
     public JsonResult<Boolean> checkPath(@RequestParam("userid") String userid, @RequestParam("requestPath") String requestPath, @RequestParam("method") String method){
-        System.out.println(userid);
-        System.out.println(requestPath);
-        System.out.println(method);
+
         return JsonResult.success(true);
     }
 }

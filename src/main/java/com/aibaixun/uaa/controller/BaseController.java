@@ -1,9 +1,14 @@
 package com.aibaixun.uaa.controller;
 
-import com.aibaixun.basic.entity.BaseAuthUser;
+import com.aibaixun.basic.entity.AuthUserInfo;
 import com.aibaixun.uaa.support.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static com.aibaixun.uaa.auth.SecurityConstants.ADMIN_TYPE;
+
+/**
+ * @author wangxiao
+ */
 public abstract class BaseController {
 
     private UserHolder userHolder;
@@ -15,8 +20,7 @@ public abstract class BaseController {
     protected String getCurrentUserTenantId () {
         String tenantId = "";
         String userType = getUserType();
-        //管理用户查询全局用户
-        if (!"admin".equals(userType)){
+        if (!ADMIN_TYPE.equals(userType)){
             tenantId = userHolder.getCurrentUserTenantId();
         }
         return tenantId;
@@ -26,7 +30,7 @@ public abstract class BaseController {
         return userHolder.getCurrentUserTenantId();
     }
 
-    protected BaseAuthUser getCurrentUser () {
+    protected AuthUserInfo getCurrentUser () {
         return userHolder.getCurrentUser();
     }
 

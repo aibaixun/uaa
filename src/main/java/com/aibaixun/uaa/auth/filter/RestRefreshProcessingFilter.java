@@ -1,62 +1,64 @@
-package com.aibaixun.uaa.filter;
+package com.aibaixun.uaa.auth.filter;
 
-import com.aibaixun.uaa.entity.UserPrincipal;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.aibaixun.basic.entity.AuthUserInfo;
+import com.aibaixun.common.redis.util.RedisRepository;
+import com.aibaixun.uaa.auth.SecurityConstants;
+import com.aibaixun.uaa.auth.UserPrincipal;
+import com.aibaixun.uaa.auth.token.UaaAuthenticationToken;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationServiceException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-public class RestMobileProcessingFilter  extends AbstractAuthenticationProcessingFilter {
-    // todo
-    Logger log = LoggerFactory.getLogger("权限");
+/**
+ * 刷新 token
+ * @author wangxiao
+ */
+public class RestRefreshProcessingFilter extends AbstractAuthenticationProcessingFilter {
 
-    private ObjectMapper objectMapper = new ObjectMapper();
 
     private final AuthenticationSuccessHandler successHandler;
     private final AuthenticationFailureHandler failureHandler;
-    public RestMobileProcessingFilter(String defaultProcessUrl, AuthenticationSuccessHandler successHandler,
-                                      AuthenticationFailureHandler failureHandler) {
+    private final RedisRepository redisRepository;
+    public RestRefreshProcessingFilter(String defaultProcessUrl, AuthenticationSuccessHandler successHandler,
+                                       AuthenticationFailureHandler failureHandler, RedisRepository redisRepository) {
 
         super(defaultProcessUrl);
         this.successHandler = successHandler;
         this.failureHandler = failureHandler;
+        this.redisRepository = redisRepository;
     }
+
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         if (!HttpMethod.POST.name().equals(request.getMethod())) {
-            if(log.isDebugEnabled()) {
-                log.debug("Authentication method not supported. Request method: " + request.getMethod());
-            }
             throw new AuthenticationServiceException("不支持该认证身份方法");
         }
-        Map<String,String> longinUser = new HashMap<>();
-        try {
-            longinUser = objectMapper.readValue(request.getReader(), HashMap.class);
-        } catch (Exception e) {
-            throw new AuthenticationServiceException("错误请求");
+        String token = request.getHeader(SecurityConstants.TOKEN_FIELD);
+        if (StringUtils.isEmpty(token)){
+            throw new BadCredentialsException("token为空！");
         }
-
-        if (StringUtils.isBlank(longinUser.get("mobile")) || StringUtils.isBlank(longinUser.get("password"))) {
-            throw new AuthenticationServiceException("必须提供用户名和密码");
+        AuthUserInfo user = (AuthUserInfo) redisRepository.get(SecurityConstants.TOKEN_PREFIX + token);
+        if (user==null){
+            throw new BadCredentialsException("token已过期！");
         }
-        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.MOBILE,longinUser.get("mobile"));
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(principal, longinUser.get("password"));
+        redisRepository.del(SecurityConstants.TOKEN_PREFIX + token);
+        UserPrincipal principal = new UserPrincipal(UserPrincipal.Type.REFRESH,user.getUserId());
+        UaaAuthenticationToken authenticationToken = new UaaAuthenticationToken(principal, null);
         return this.getAuthenticationManager().authenticate(authenticationToken);
     }
 
@@ -71,5 +73,11 @@ public class RestMobileProcessingFilter  extends AbstractAuthenticationProcessin
                                               AuthenticationException failed) throws IOException, ServletException {
         SecurityContextHolder.clearContext();
         failureHandler.onAuthenticationFailure(request, response, failed);
+    }
+
+    @Autowired
+    @Override
+    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+        super.setAuthenticationManager(authenticationManager);
     }
 }

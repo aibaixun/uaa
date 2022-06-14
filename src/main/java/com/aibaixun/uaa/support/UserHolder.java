@@ -1,6 +1,6 @@
 package com.aibaixun.uaa.support;
 
-import com.aibaixun.basic.entity.BaseAuthUser;
+import com.aibaixun.basic.entity.AuthUserInfo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class UserHolder {
 
     public String getCurrentUserId() {
-        BaseAuthUser currentUser = getCurrentUser();
+        AuthUserInfo currentUser = getCurrentUser();
 
         if (currentUser != null) {
             return currentUser.getUserId();
@@ -17,7 +17,7 @@ public class UserHolder {
     }
 
     public String getCurrentUserTenantId() {
-        BaseAuthUser currentUser = getCurrentUser();
+        AuthUserInfo currentUser = getCurrentUser();
 
         if (currentUser != null) {
             return currentUser.getTenantId();
@@ -26,7 +26,7 @@ public class UserHolder {
     }
 
     public String getCurrentUserType() {
-        BaseAuthUser currentUser = getCurrentUser();
+        AuthUserInfo currentUser = getCurrentUser();
 
         if (currentUser != null) {
             return currentUser.getType();
@@ -34,10 +34,10 @@ public class UserHolder {
         return "";
     }
 
-    public BaseAuthUser getCurrentUser() {
+    public AuthUserInfo getCurrentUser() {
         Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (user instanceof BaseAuthUser) {
-            return (BaseAuthUser) user;
+        if (user instanceof AuthUserInfo) {
+            return (AuthUserInfo) user;
         } else {
             return null;
         }

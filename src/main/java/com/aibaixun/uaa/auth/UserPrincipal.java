@@ -1,7 +1,10 @@
-package com.aibaixun.uaa.entity;
+package com.aibaixun.uaa.auth;
 
 import java.io.Serializable;
 
+/**
+ * @author wangxiao
+ */
 public class UserPrincipal implements Serializable {
 
     private final Type type;
@@ -21,10 +24,29 @@ public class UserPrincipal implements Serializable {
     }
 
     public enum Type {
+        /**
+         * 用户名
+         */
         USERNAME,
+
+        /**
+         * 邮箱
+         */
         EMAIL,
+
+        /**
+         * 手机号
+         */
         MOBILE,
+
+        /**
+         * token
+         */
         TOKEN,
-        REFLASH
+
+        /**
+         * 刷新token
+         */
+        REFRESH
     }
 }
